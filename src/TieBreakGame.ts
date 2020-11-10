@@ -1,7 +1,7 @@
 import { getTieBreakWinner } from './utils'
-import { Player } from './types';
+import { Player, GameInterface } from './types';
 
-export class TieBreakGame {
+export class TieBreakGame implements GameInterface {
   playerOne = 0;
   playerTwo = 0;
 

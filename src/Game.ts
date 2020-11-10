@@ -1,9 +1,9 @@
 import { getGameWinner } from './utils'
-import { Player } from './types';
+import { Player, GameInterface } from './types';
 
 const RUNNING_SCORES = [0, 15, 30, 40]
 
-export class Game {
+export class Game implements GameInterface {
   playerOne = 0;
   playerTwo = 0;
 

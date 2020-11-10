@@ -1,10 +1,10 @@
 import { getSetWinner, shouldEnterTieBreak } from './utils';
 import { Game } from './Game';
 import { TieBreakGame } from './TieBreakGame';
-import { Player } from './types';
+import { Player, GameInterface } from './types';
 
 export class Match {
-  game: Game | TieBreakGame = new Game();
+  game: GameInterface = new Game();
   playerOne = 0
   playerTwo = 0
 
