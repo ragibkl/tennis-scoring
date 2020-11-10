@@ -18,6 +18,9 @@ export class TieBreakGame implements GameInterface {
   }
 
   score = () => {
+    if (!this.playerOne && !this.playerTwo) {
+      return '';
+    }
     return `${this.playerOne}-${this.playerTwo}`;
   }
 
