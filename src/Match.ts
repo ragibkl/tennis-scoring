@@ -16,7 +16,7 @@ export class Match {
     this.game.pointWonBy(player);
     const gameWinner = this.game.winner();
     if (!gameWinner) {
-      return;
+      return null;
     }
 
     if (gameWinner === 'player 1') {
