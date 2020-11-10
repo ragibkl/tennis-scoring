@@ -60,6 +60,26 @@ describe('Match class', () => {
     })
   })
 
+  describe('When points won by both players, with p1 winning the set', () => {
+    it('should return appropriate scores', () => {
+      const match = new Match();
+      match.playerOne = 6;
+      match.playerTwo = 5;
+      expect(match.score()).toEqual('6-5');
+
+      const game = new Game();
+      game.playerOne = 3;
+      game.playerTwo = 2;
+      match.game = game;
+      expect(match.score()).toEqual('6-5, 40-30');
+      expect(match.winner()).toBeNull();
+
+      match.pointWonBy('player 1');
+      expect(match.score()).toEqual('7-5');
+      expect(match.winner()).toEqual('player 1');
+    })
+  })
+
   describe('When both players win 6 games', () => {
     it('should enter into tie-break', () => {
       const match = new Match();
@@ -94,7 +114,6 @@ describe('Match class', () => {
       match.pointWonBy('player 1');
       expect(match.score()).toEqual('7-6');
       expect(match.winner()).toEqual('player 1');
-
 
       match.pointWonBy('player 2');
       match.pointWonBy('player 2');
