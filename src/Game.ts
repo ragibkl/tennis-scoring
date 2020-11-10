@@ -1,4 +1,5 @@
 import { playerWonGame } from './utils'
+import { Player } from './types';
 
 const RUNNING_SCORES = [0, 15, 30, 40]
 
@@ -6,7 +7,7 @@ export class Game {
   playerOne = 0;
   playerTwo = 0;
 
-  pointWonBy = (player) => {
+  pointWonBy = (player: Player) => {
     if (player === 'player 1') {
       this.playerOne += 1;
       return
@@ -41,7 +42,7 @@ export class Game {
     return `${scorePlayerOne}-${scorePlayerTwo}`;
   }
 
-  winner = () => {
+  winner = (): Player | null => {
     if (playerWonGame(this.playerOne, this.playerTwo)) {
       return 'player 1'
     }

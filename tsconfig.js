@@ -1,4 +1,4 @@
-{
+module.exports = {
   "compilerOptions": {
       "outDir": "./dist/",
       "sourceMap": true,
@@ -9,6 +9,7 @@
       "moduleResolution": "node",
       "target": "es5",
       "allowJs": true,
+      "noEmit": true
   },
   "include": [
       "./src/**/*"

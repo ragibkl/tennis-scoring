@@ -1,12 +1,13 @@
 // import { playerWonSet } from './utils';
 import { Game } from './Game';
+import { Player } from './types';
 
 export class Match {
   game = new Game();
   playerOne = 0
   playerTwo = 0
 
-  pointWonBy = (player) => {
+  pointWonBy = (player: Player) => {
     this.game.pointWonBy(player);
 
     const gameWinner = this.game.winner();
@@ -21,11 +22,10 @@ export class Match {
     }
   }
 
-  score = () => {
+  score = (): string => {
     const setScore = `${this.playerOne}-${this.playerTwo}`;
     const currentGameScore = this.game.score();
-
-    const score = `${setScore}, ${currentGameScore}`
+    const score = [setScore, currentGameScore].filter(v => !!v).join();
     console.log(score)
     return score;
   }

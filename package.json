@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Ragib Badaruddin <ragib@seekasia.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "babel-node --extensions .ts src/index.ts",
+    "lint": "tsc --noemit src/index.ts"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
