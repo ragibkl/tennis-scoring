@@ -1,6 +1,10 @@
+import repl from 'repl';
 import { Match } from './Match'
 
 const match = new Match()
+const replInstance = repl.start('> ');
+
+Object.assign(replInstance.context, { Match });
 
 match.pointWonBy("player 1");
 match.pointWonBy("player 2");

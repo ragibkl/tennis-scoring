@@ -4,7 +4,7 @@ function marginExceeded(points: number, otherPoints: number, minScore: number, m
   return points >= minScore && (points - otherPoints) >= margin;
 }
 
-function getWinner(playerOneScore: number, playerTwoScore: number, minScore, margin: number) : Player | null {
+function getWinner(playerOneScore: number, playerTwoScore: number, minScore, margin: number): Player | null {
   if (marginExceeded(playerOneScore, playerTwoScore, minScore, margin)) {
     return 'player 1';
   }
@@ -18,6 +18,16 @@ export function getGameWinner(playerOneScore: number, playerTwoScore: number) {
   return getWinner(playerOneScore, playerTwoScore, 4, 2);
 }
 
+export function getTieBreakWinner(playerOneScore: number, playerTwoScore: number) {
+  return getWinner(playerOneScore, playerTwoScore, 7, 2);
+}
+
 export function getSetWinner(playerOneGames: number, playerTwoGames: number) {
-  return getWinner(playerOneGames, playerTwoGames, 6, 2);
+
+  return getWinner(playerOneGames, playerTwoGames, 7, 1)
+    || getWinner(playerOneGames, playerTwoGames, 6, 2);
+}
+
+export function shouldEnterTieBreak(playerOneScore: number, playerTwoScore: number) {
+  return playerOneScore === 6 && playerTwoScore === 6;
 }
