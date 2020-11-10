@@ -1,4 +1,4 @@
-// import { playerWonSet } from './utils';
+import { getSetWinner } from './utils';
 import { Game } from './Game';
 import { Player } from './types';
 
@@ -28,5 +28,9 @@ export class Match {
     const score = [setScore, currentGameScore].filter(v => !!v).join();
     console.log(score)
     return score;
+  }
+
+  winner = () => {
+    return getSetWinner(this.playerOne, this.playerTwo);
   }
 }

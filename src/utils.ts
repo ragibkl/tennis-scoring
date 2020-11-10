@@ -1,7 +1,23 @@
-export function playerWonGame(playerScore: number, otherPlayerScore: number) {
-  return playerScore >= 4 && (playerScore - otherPlayerScore) >= 2;
+import { Player } from "./types";
+
+function marginExceeded(points: number, otherPoints: number, minScore: number, margin: number) {
+  return points >= minScore && (points - otherPoints) >= margin;
 }
 
-export function playerWonSet(playerGames: number, otherPlayerGames: number) {
-  return playerGames >= 6 && (playerGames - otherPlayerGames) >= 2;
+function getWinner(playerOneScore: number, playerTwoScore: number, minScore, margin: number) : Player | null {
+  if (marginExceeded(playerOneScore, playerTwoScore, minScore, margin)) {
+    return 'player 1';
+  }
+  if (marginExceeded(playerOneScore, playerTwoScore, minScore, margin)) {
+    return 'player 1';
+  }
+  return null;
+}
+
+export function getGameWinner(playerOneScore: number, playerTwoScore: number) {
+  return getWinner(playerOneScore, playerTwoScore, 4, 2);
+}
+
+export function getSetWinner(playerOneGames: number, playerTwoGames: number) {
+  return getWinner(playerOneGames, playerTwoGames, 6, 2);
 }
