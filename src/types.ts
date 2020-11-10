@@ -4,4 +4,4 @@ export interface GameInterface {
   pointWonBy(player: Player): void;
   score(): string;
   winner(): Player | null;
-};
+}

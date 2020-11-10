@@ -6,59 +6,59 @@ describe('Match class', () => {
   describe('When points won by both players each', () => {
     it('should return appropriate scores', () => {
       const match = new Match();
-      match.pointWonBy("player 1");
-      match.pointWonBy("player 2");
+      match.pointWonBy('player 1');
+      match.pointWonBy('player 2');
       expect(match.score()).toEqual('0-0, 15-15');
     });
-  })
+  });
 
   describe('When points won by both players, with p1 winning', () => {
     it('should return appropriate scores', () => {
       const match = new Match();
 
-      match.pointWonBy("player 1");
-      match.pointWonBy("player 2");
+      match.pointWonBy('player 1');
+      match.pointWonBy('player 2');
       expect(match.score()).toEqual('0-0, 15-15');
 
-      match.pointWonBy("player 1");
-      match.pointWonBy("player 1");
+      match.pointWonBy('player 1');
+      match.pointWonBy('player 1');
       expect(match.score()).toEqual('0-0, 40-15');
 
-      match.pointWonBy("player 2");
-      match.pointWonBy("player 2");
+      match.pointWonBy('player 2');
+      match.pointWonBy('player 2');
       expect(match.score()).toEqual('0-0, Deuce');
 
-      match.pointWonBy("player 1");
+      match.pointWonBy('player 1');
       expect(match.score()).toEqual('0-0, Advantage player 1');
 
-      match.pointWonBy("player 1");
+      match.pointWonBy('player 1');
       expect(match.score()).toEqual('1-0');
-    })
-  })
+    });
+  });
 
   describe('When points won by both players, with p2 winning', () => {
     it('should return appropriate scores', () => {
       const match = new Match();
 
-      match.pointWonBy("player 2");
-      match.pointWonBy("player 1");
+      match.pointWonBy('player 2');
+      match.pointWonBy('player 1');
       expect(match.score()).toEqual('0-0, 15-15');
 
-      match.pointWonBy("player 2");
-      match.pointWonBy("player 2");
+      match.pointWonBy('player 2');
+      match.pointWonBy('player 2');
       expect(match.score()).toEqual('0-0, 15-40');
 
-      match.pointWonBy("player 1");
-      match.pointWonBy("player 1");
+      match.pointWonBy('player 1');
+      match.pointWonBy('player 1');
       expect(match.score()).toEqual('0-0, Deuce');
 
-      match.pointWonBy("player 2");
+      match.pointWonBy('player 2');
       expect(match.score()).toEqual('0-0, Advantage player 2');
 
-      match.pointWonBy("player 2");
+      match.pointWonBy('player 2');
       expect(match.score()).toEqual('0-1');
-    })
-  })
+    });
+  });
 
   describe('When points won by both players, with p1 winning the set', () => {
     it('should return appropriate scores', () => {
@@ -77,8 +77,8 @@ describe('Match class', () => {
       match.pointWonBy('player 1');
       expect(match.score()).toEqual('7-5');
       expect(match.winner()).toEqual('player 1');
-    })
-  })
+    });
+  });
 
   describe('When both players win 6 games', () => {
     it('should enter into tie-break', () => {
@@ -121,6 +121,6 @@ describe('Match class', () => {
       match.pointWonBy('player 2');
       expect(match.score()).toEqual('7-6');
       expect(match.winner()).toEqual('player 1');
-    })
-  })
-})
+    });
+  });
+});

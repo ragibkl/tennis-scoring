@@ -5,7 +5,9 @@ import { Player, GameInterface } from './types';
 
 export class Match {
   game: GameInterface = new Game();
+
   playerOne = 0
+
   playerTwo = 0
 
   pointWonBy = (player: Player): Player | null => {
@@ -37,10 +39,8 @@ export class Match {
   score = (): string => {
     const setScore = `${this.playerOne}-${this.playerTwo}`;
     const currentGameScore = this.game.score();
-    return [setScore, currentGameScore].filter(v => !!v).join(', ');
+    return [setScore, currentGameScore].filter((v) => !!v).join(', ');
   }
 
-  winner = (): Player | null => {
-    return getSetWinner(this.playerOne, this.playerTwo);
-  }
+  winner = (): Player | null => getSetWinner(this.playerOne, this.playerTwo)
 }
