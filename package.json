@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "babel-node --extensions .ts src/index.ts",
-    "lint": "tsc --noemit src/index.ts"
+    "lint": "tsc --noemit src/index.ts",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -14,6 +15,9 @@
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-typescript": "^7.12.1",
+    "@types/jest": "^26.0.15",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
     "typescript": "^4.0.5"
   }
 }
