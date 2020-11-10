@@ -94,6 +94,14 @@ describe('Match class', () => {
       match.pointWonBy('player 1');
       expect(match.score()).toEqual('7-6');
       expect(match.winner()).toEqual('player 1');
+
+
+      match.pointWonBy('player 2');
+      match.pointWonBy('player 2');
+      match.pointWonBy('player 2');
+      match.pointWonBy('player 2');
+      expect(match.score()).toEqual('7-6');
+      expect(match.winner()).toEqual('player 1');
     })
   })
 })
