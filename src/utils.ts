@@ -14,15 +14,15 @@ function getWinner(playerOneScore: number, playerTwoScore: number, minScore: num
   return null;
 }
 
-export function getGameWinner(playerOneScore: number, playerTwoScore: number) {
+export function getGameWinner(playerOneScore: number, playerTwoScore: number): Player | null {
   return getWinner(playerOneScore, playerTwoScore, 4, 2);
 }
 
-export function getTieBreakWinner(playerOneScore: number, playerTwoScore: number) {
+export function getTieBreakWinner(playerOneScore: number, playerTwoScore: number): Player | null {
   return getWinner(playerOneScore, playerTwoScore, 7, 2);
 }
 
-export function getSetWinner(playerOneGames: number, playerTwoGames: number) {
+export function getSetWinner(playerOneGames: number, playerTwoGames: number): Player | null {
   return getWinner(playerOneGames, playerTwoGames, 7, 1) // tie break game
     || getWinner(playerOneGames, playerTwoGames, 6, 2);
 }
